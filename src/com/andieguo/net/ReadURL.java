@@ -7,18 +7,9 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class ReadURL {
-	/**
-	 * 有两种方法可以用来访问Internet。一是利用URL类的openStream()方法；二是使用openConnection()方法创建一个URLConnection类的对象。
-　　其中，方法openStream()与指定的URL建立连接并返回InputStream类的对象，以从这一连接中读取数据。
-	 * @param args
-	 */
-	public static void main(String[] args){
-//		readHTML();
-		readHTMLByBuffer();
-		
-	}
-
-	private static void readHTML2() {
+	
+	//通过url.openStream()获取InputStream，并通过InputStream流访问Internet。
+	private static void readHTML0() {
 		try{
 			URL url = new URL("http://www.baidu.com");
 			InputStream in = url.openStream();
@@ -32,8 +23,8 @@ public class ReadURL {
 			e.printStackTrace();
 		}
 	}
-
-	private static void readHTML() {
+	//通过url.openConnection()获取URLConnection连接，并通过conn.getInputStream()获取InputStream访问Internet。
+	private static void readHTML1() {
 		try {
 			URL url = new URL("http://www.baidu.com");
 			URLConnection conn = url.openConnection();
@@ -48,8 +39,8 @@ public class ReadURL {
 			e.printStackTrace();
 		}
 	}
-	
-	private static void readHTMLByBuffer() {
+	//通过url.openConnection()获取URLConnection连接，并通过conn.getInputStream()获取InputStream，并通过BufferedReader对InputStream进行封装访问Internet。
+	private static void readHTML2() {
 		try {
 			URL url = new URL("http://www.baidu.com");
 			URLConnection conn = url.openConnection();
