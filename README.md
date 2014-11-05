@@ -6,7 +6,7 @@
 
 > 类 URL 代表一个统一资源定位符，它是指向互联网“资源”的指针。资源可以是简单的文件或目录，也可以是对更为复杂的对象的引用，例如对数据库或搜索引擎的查询。
 >  
-> 简单的可以把URL理解为包含：协议、主机名、端口、路径、查询字符串和参数等对象。每一段可以独立设置。
+> 简单的可以把URL理解为包含：**协议**、**主机名**、**端口**、**路径**、**查询字符串和参数**等对象。每一段可以独立设置。
 >  
 > 应用程序也可以指定一个“相对 URL”，它只包含到达相对于另一个 URL 的资源的足够信息。HTML 页面中经常使用相对 URL。
 >  
@@ -19,7 +19,7 @@
 > 也可以使用 URLEncoder 和 URLDecoder 类，但是只适用于 HTML 形式的编码，它与 RFC2396 中定义的编码机制不同。
 
 
-### 2、创建URL对象 ###  
+### 2、创建URL对象 ###
 　　URL类有多种形式的构造函数：
 
 > **URL(String url)**  
@@ -147,8 +147,18 @@ Console结果输出显示：
     	}
     }
 
+### 5、URI、URL、URN 三者之间的区别 ###
+
+
+> 首先，URI，是uniform resource identifier，统一资源标识符，用来唯一的标识一个资源。而URL是uniform resource locator，统一资源定位器，它是一种具体的URI，即URL可以用来标识一个资源，而且还指明了如何locate这个资源。而URN，uniform resource name，统一资源命名，是通过名字来标识资源，比如mailto:java-net@java.sun.com。也就是说，URI是以一种抽象的，高层次概念定义统一资源标识，而URL和URN则是具体的资源标识的方式。URL和URN都是一种URI。
+
+> 在Java的URI中，一个URI实例可以代表绝对的，也可以是相对的，只要它符合URI的语法规则。而URL类则不仅符合语义，还包含了定位该资源的信息，因此它不能是相对的，schema必须被指定。
+
+> URL是一种具体的URI，它不仅唯一标识资源，而且还提供了定位该资源的信息。URI是一种语义上的抽象概念，可以是绝对的，也可以是相对的，而URL则必须提供足够的信息来定位，所以，是绝对的，而通常说的relative URL，则是针对另一个absolute URL，本质上还是绝对的。
 
 ### 参考： ###
 
-1、[JAVA之URL](http://www.blogjava.net/baoyaer/articles/120422.html)  
-2、[Java获取URL对应的资源](http://lavasoft.blog.51cto.com/62575/120445/)
+1）[JAVA之URL](http://www.blogjava.net/baoyaer/articles/120422.html)  
+2）[Java获取URL对应的资源](http://lavasoft.blog.51cto.com/62575/120445/)  
+3）[Java网络编程之URI、URL研究（下）](http://www.blogjava.net/wangxinsh55/archive/2006/04/03/38937.html)  
+4）[URI和URL的区别](http://www.cnblogs.com/gaojing/archive/2012/02/04/2413626.html)
